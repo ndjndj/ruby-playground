@@ -10,4 +10,8 @@ class User
   def formatted_email
     return "#{@name} <#{@email}>"
   end
+
+  def full_name
+    return "#{@first_name} #{@last_name}"
+  end
 end
