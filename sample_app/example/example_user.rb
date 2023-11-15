@@ -8,7 +8,7 @@ class User
   end
 
   def formatted_email
-    return "#{@name} <#{@email}>"
+    return "#{full_name} <#{@email}>"
   end
 
   def full_name
