@@ -13,5 +13,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
         }
       }
     end
+    assert_response :unprocessable_entity
+    assert_template "users/new"
   end
 end
