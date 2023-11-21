@@ -43,6 +43,13 @@ input {
     }
 }
 
+.field_with_errors {
+    @extend .has-error;
+    .form-control {
+        color: $state-danger-text;
+    }
+}
+
 .center {
     text-align: center;
     h1 {
