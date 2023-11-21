@@ -1,1 +1,1 @@
-<%= @user.name %>, <%= @user.email %>,<%= Time.now %>,<%= @user.created_at %>,<%= @user.updated_at %>
+<% provide(:title, @user.name) %>
