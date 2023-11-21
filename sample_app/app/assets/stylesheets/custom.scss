@@ -4,6 +4,12 @@
 /* mixins, variables, etc. */
 $gray-midium-light: #EAEAEA;
 
+@mixin box_sizing {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 /* universal */
 body {
     padding-top: 100px;
@@ -15,6 +21,18 @@ section {
 
 textarea {
     resize: vertical;
+}
+
+/* forms */
+input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    @include box_sizing;
+}
+
+input {
+    height: auto !important;
 }
 
 .center {
