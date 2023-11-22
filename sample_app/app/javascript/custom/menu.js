@@ -4,7 +4,7 @@
 documenut.addEventListener(
     "turbo:load",
     function() {
-        let account = document.querySelector("account");
+        let account = document.querySelector("#account");
         account.addEventListener(
             "click",
             function(event) {
