@@ -19,15 +19,5 @@ document.addEventListener(
     function() {
         addToggleListener("hamburger", "navbar-menu"  , "collapse");
         addToggleListener("account"  , "dropdown-menu", "active");
-
-        let account = document.querySelector("#account");
-        account.addEventListener(
-            "click",
-            function(event) {
-                event.preventDefault();
-                let menu = document.querySelector("#dropdown-menu");
-                menu.classList.toggle("active");
-            }
-        )
     }
 )
