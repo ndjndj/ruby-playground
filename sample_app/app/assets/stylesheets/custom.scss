@@ -126,6 +126,11 @@ aside {
     }
 }
 
+/* Dropdown menu */
+.dropdown-menu.active {
+    display: block;
+}
+
 .gravatar {
     float: left;
     margin-right: 10px;
