@@ -14,4 +14,8 @@ class User < ApplicationRecord
                                                 : BCrypt::Engine.cost
     return BCrypt::Password.create(string, cost: cost)
   end
+
+  def User.new_token
+    return SecureRandom.urlsafe_base64
+  end
 end
