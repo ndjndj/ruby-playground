@@ -22,7 +22,7 @@ class ActiveSupport::TestCase
 end
 
 
-class ActionDispatch::IntergrationTest
+class ActionDispatch::IntegrationTest
   def log_in_as(user, password: "passwordpassword", remember_me: "1")
     post login_path, params: { session: {
       email: user.email,
