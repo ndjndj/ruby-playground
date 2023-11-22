@@ -24,6 +24,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
       email: @user.email,
       password: "invalidinvalid"
     } }
+    assert_not is_logged_in?
     assert_response :unprocessable_entity
     assert_template "sessions/new"
     assert_not flash.empty?
