@@ -1,7 +1,7 @@
 // メニュー操作
 
 // トグルリスナーを追加して Click event を listen する
-documenut.addEventListener(
+document.addEventListener(
     "turbo:load",
     function() {
         let account = document.querySelector("#account");
