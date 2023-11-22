@@ -16,4 +16,11 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get root_path
     assert flash.empty?
   end
+
+  test "login with valid information" do
+    post login_path, params: { session: {
+      email: @user.email,
+      password: "passwordpassword"
+    } }
+  end
 end
