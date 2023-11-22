@@ -55,7 +55,7 @@ end
 class Logout < ValidLogin
   def setup
     super
-    delete logount_path
+    delete logout_path
   end
 end
 
