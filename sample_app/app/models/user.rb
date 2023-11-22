@@ -19,4 +19,9 @@ class User < ApplicationRecord
   def User.new_token
     return SecureRandom.urlsafe_base64
   end
+
+  def remember
+    self.remember_token =
+    update_attribute(:remember_digest)
+  end
 end
