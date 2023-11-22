@@ -10,7 +10,7 @@ document.addEventListener(
             function(event) {
                 event.preventDefault();
                 let menu = document.querySelector("#navbar-menu")
-                menu.classList.toggle("active")
+                menu.classList.toggle("collapse")
             }
         );
 
