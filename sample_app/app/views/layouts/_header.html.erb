@@ -11,7 +11,8 @@
         <span class="icon-bar"></span>
       </button>
     </div>
-    <ul class="nav navbar-nav navbar-right">
+    <ul id="navbar-menu" 
+        class="nav navbar-nav navbar-right collapsed navbar-collapse">
       <li><%= link_to "Home"  , root_path %></li>
       <li><%= link_to "Help"  , help_path %></li>
       <% if logged_in? %>
