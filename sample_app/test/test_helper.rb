@@ -20,3 +20,14 @@ class ActiveSupport::TestCase
     session[:user_id] = user.id
   end
 end
+
+
+class ActionDispatch::IntergrationTest
+  def log_in_as(user, password: "passwordpassword", remember_me: "1")
+    post login_path, params: { session: {
+      email: user.email,
+      password: password,
+      remember_me: remember_me
+    } }
+  end
+end
