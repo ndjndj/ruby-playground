@@ -24,15 +24,6 @@ class User < ApplicationRecord
     def new_token
       return SecureRandom.urlsafe_base64
     end
-
-    def downcase_email
-      self.email = self.email.downcase
-    end
-
-    def create_activation_digest
-      self.activation_token = User.new_token
-      self.activation_digest = User.digest(activation_token)
-    end
   end
 
   def remember
@@ -53,4 +44,14 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  private
+    def downcase_email
+      self.email = self.email.downcase
+    end
+
+    def create_activation_digest
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end
 end
