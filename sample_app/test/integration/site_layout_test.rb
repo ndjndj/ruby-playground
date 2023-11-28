@@ -12,5 +12,11 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "title", full_title("Contact")
     get signup_path
     assert_select "title", full_title("Sign up")
+    get users_path
+    assert_not flash.empty?
+    assert_redirected_to login_url
+    log_in_as(@user)
+    get users_path
+    assert_select "title", full_title("All users")
   end
 end
