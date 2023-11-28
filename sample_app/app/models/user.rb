@@ -47,7 +47,7 @@ class User < ApplicationRecord
 
   private
     def downcase_email
-      self.email.downcase!
+      self.email = email.downcase
     end
 
     def create_activation_digest
