@@ -41,7 +41,7 @@ module SessionsHelper
     !current_user.nil?
   end
 
-  def current_user?
+  def current_user?(user)
     return user && user == current_user
   end
 end
