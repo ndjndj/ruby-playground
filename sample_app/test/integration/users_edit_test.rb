@@ -16,5 +16,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
       password_confirmation: "bar"
     }}
     assert_template "users/edit"
+    assert_select "div.alert", count: 4
   end
 end
