@@ -69,7 +69,7 @@ class AccountActivationTest < UsersSignup
   end
 
   test "should not be able to log in with invalid email" do
-    get edit account_activation_path(@user.activation_token, email: "wrong")
+    get edit_account_activation_path(@user.activation_token, email: "wrong")
     assert_not is_logged_in?
   end
 
