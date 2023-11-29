@@ -17,7 +17,7 @@ end
 
 class UsersIndexTest < UsersIndexAdmin
   test "should be render the index page" do
-    asssert_template "users/index"
+    assert_template "users/index"
   end
 
   test "should paginate users" do
@@ -43,7 +43,7 @@ class UsersIndexTest < UsersIndexAdmin
   end
 
   test "should display only activated users" do
-    User.paginate(page: 1).first.toggle!
+    User.paginate(page: 1).first.toggle!(:activated)
     get users_path
     assigns(:users).each do |user|
       assert user.activated?
