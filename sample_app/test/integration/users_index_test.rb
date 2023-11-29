@@ -41,4 +41,20 @@ class UsersIndexTest < UsersIndexAdmin
     assert_response :see_other
     assert_redirected_to users_url
   end
+
+  test "should display only activated users" do
+    User.paginate(page: 1).first.toggle!
+    get users_path
+    assigns(:users).each do |user|
+      assert user.activated
+    end
+  end
+end
+
+class UserNonAdminIndexTest < UsersIndex
+  test "should not have delete links as non-admin" do
+    log_in_as(@non_admin)
+    get users_path
+    assert_select "a", text: "delete", count: 0
+  end
 end
