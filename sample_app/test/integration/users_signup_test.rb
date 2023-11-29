@@ -38,3 +38,45 @@ class UsersSignupTest < UsersSignup
     assert_equal 1, ActionMailer::Base.deliveries.size
   end
 end
+
+class AccountActivationTest < UsersSignup
+  def setup
+    super
+    post users_path, params: {
+      user: {
+        name: "Example User",
+        email: "user@example.com",
+        password: "passwordpassword",
+        password_confirmation: "passwordpassword"
+      }
+    }
+    @user = assigns(:user)
+  end
+
+  test "should not be activated" do
+    assert_not @user.activated?
+  end
+
+  test "should not be able to log in before account activation" do
+    log_in_as(@user)
+    assert_not is_logged_in?
+  end
+
+  test "should not be able to log in with invalid activation token" do
+    get edit_account_activation_path("invalid token", email: @user.email)
+    assert_not is_logged_in?
+  end
+
+  test "should not be able to log in with invalid email" do
+    get edit account_activation_path(@user.activation_token, email: "wrong")
+    assert_not is_logged_in?
+  end
+
+  test "should log in successfully with valid activation token and email" do
+    get edit_account_activation_path(@user.activation_token, email: @user.email)
+    assert @user.reload.activated?
+    follow_redirect!
+    assert_template "users/show"
+    assert is_logged_in?
+  end
+end
