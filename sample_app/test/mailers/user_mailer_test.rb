@@ -21,7 +21,7 @@ class UserMailerTest < ActionMailer::TestCase
     assert_equal [user.email], mail.to
     assert_equal ["user@realdomain.com"], mail.from
     assert_match user.reset_token,        mail.body.encoded
-    assert_match CGI.escape(user.email),  mail.body.encoded 
+    assert_match CGI.escape(user.email),  mail.body.encoded
   end
 
 end
