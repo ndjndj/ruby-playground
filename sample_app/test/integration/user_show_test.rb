@@ -2,8 +2,11 @@ require "test_helper"
 
 class UserShowTest < ActionDispatch::IntegrationTest
   def setup
+    @user = users(:michael)
     @inactive_user = users(:inactive)
     @activated_user = users(:archer)
+
+    log_in_as(@user)
   end
 
   test "should redirect when user not activated" do
