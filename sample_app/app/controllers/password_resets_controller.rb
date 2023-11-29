@@ -13,7 +13,6 @@ class PasswordResetsController < ApplicationController
       flash.now[:danger] = "Email address not found"
       render "new", status: :unprocessable_entity
     end
-
   end
 
   def edit
