@@ -108,6 +108,10 @@ class PasswordUpdateTest < PasswordResetForm
     assert_not flash.empty?
     assert_redirected_to @reset_user
   end
+
+  test "to nil reset_digeset after success update" do
+    
+  end
 end
 
 class ExpiredToken < PasswordResets
