@@ -38,4 +38,9 @@ class PasswordFormTest < PasswordResetForm
     asssert_not flash.empty?
     assert_redirected_to root_url
   end
+
+  test "reset with wrong email" do
+    get edit_password_reset_path(@reset_user.reset_token, email: "")
+    assert_redirected_to root_url
+  end
 end
