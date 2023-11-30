@@ -68,3 +68,13 @@ class PasswordFormTest < PasswordResetForm
     assert_select "input[name=email][type=hidden][value=?]", @reset_user.email
   end
 end
+
+class PasswordUpdateTest < PasswordResetForm
+  test "update with invalid password and confirmation" do
+    patch password_reset_path(@reset_user.reset_token),
+          params: {
+            email: @reset_user.email,
+            user: {password: "", password_confirmation: ""}
+          }
+  end
+end
