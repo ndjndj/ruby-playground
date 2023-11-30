@@ -126,3 +126,14 @@ class ExpiredToken < PasswordResets
           }
   end
 end
+
+class ExpiredTokenTest < ExpiredToken
+  test "should redirect to the password-reset page" do
+    assert_redirected_to new_password_reset_url
+  end
+
+  test "should include the word 'expired' on the password-reset page" do
+    follow_redirect!
+    assert_match //i, response.body
+  end
+end
