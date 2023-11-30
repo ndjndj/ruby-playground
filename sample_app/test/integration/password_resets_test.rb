@@ -43,4 +43,25 @@ class PasswordFormTest < PasswordResetForm
     get edit_password_reset_path(@reset_user.reset_token, email: "")
     assert_redirected_to root_url
   end
+
+  test "reset with inactive user" do
+    @reset_user.toggle!(:activated)
+    get edit_password_reset_path(
+      @reset_user.reset_token, email: @reset_user.email
+    )
+    assert_redirected_to root_url
+  end
+
+  test "reset with right email but wrong token" do
+    get edit_password_reset_path(
+      "wrong token", email: @reset_user.email
+    )
+  end
+
+  test "reset with right email and right token" do
+    get edit_password_reset_path(
+      @reset_user.reset_token,
+      email: @reset_user.email
+    )
+  end
 end
