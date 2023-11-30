@@ -30,3 +30,12 @@ class PasswordResetForm < PasswordResets
     @reset_user = assigns(:user)
   end
 end
+
+class PasswordFormTest < PasswordResetForm
+  test "reset with valid email" do
+    assert_not_equal @user.reset_digest, @reset_user.reset_digest
+    assert_equal 1, ActionMailer::Base.deliveries.size
+    asssert_not flash.empty?
+    assert_redirected_to root_url
+  end
+end
