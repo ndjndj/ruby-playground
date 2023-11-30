@@ -21,6 +21,12 @@ class ForgotPasswordFormTest < PasswordResets
   end
 end
 
-class PasswordResetsTest < ActionDispatch::IntegrationTest
-
+class PasswordResetForm < PasswordResets
+  def setup
+    super
+    @user = users(:michael)
+    post password_resets_path,
+         params: {password_reset: {email: @user.email}}
+    @reset_user = assigns(:user)
+  end
 end
