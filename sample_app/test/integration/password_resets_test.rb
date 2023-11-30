@@ -109,3 +109,20 @@ class PasswordUpdateTest < PasswordResetForm
     assert_redirected_to @reset_user
   end
 end
+
+class ExpiredToken < PasswordResets
+  def setup
+    post password_resets_path,
+         params: {password_reset: {email: @user.email}}
+    @reset_user = assigns(:user)
+    @reset_user.update_attribute(:reset_sent_at, 3.hours.ago)
+    patch password_reset_path(@reset_user.reset_token),
+          params: {
+            email: @reset_user.email,
+            user: {
+              password: "foobar",
+              password_confirmation: "foobar"
+            }
+          }
+  end
+end
