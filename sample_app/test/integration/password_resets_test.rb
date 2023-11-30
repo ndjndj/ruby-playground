@@ -56,6 +56,7 @@ class PasswordFormTest < PasswordResetForm
     get edit_password_reset_path(
       "wrong token", email: @reset_user.email
     )
+    assert_redirected_to root_url
   end
 
   test "reset with right email and right token" do
@@ -63,5 +64,7 @@ class PasswordFormTest < PasswordResetForm
       @reset_user.reset_token,
       email: @reset_user.email
     )
+    assert_template "password_resets/edit"
+    assert_select "input[name=email][type=hidden][value=?]", @reset_user.email
   end
 end
