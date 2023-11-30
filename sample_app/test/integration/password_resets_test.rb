@@ -79,5 +79,32 @@ class PasswordUpdateTest < PasswordResetForm
               password_confirmation: "barquux"
             }
           }
+    assert_select "div#error_explanation"
+  end
+
+  test "update with empty password" do
+    patch password_reset_path(@reset_user.reset_token),
+          params: {
+            email: @reset_user.email,
+            user: {
+              password: "",
+              password_confirmation: ""
+            }
+          }
+    assert_select "div#error_explanation"
+  end
+
+  test "update with valid password and confirmation" do
+    patch password_reset_path(@reset_user.reset_token),
+          params: {
+            email: @reset_user.email,
+            user: {
+              password: "foobar",
+              password_confirmation: "foobar"
+            }
+          }
+    assert is_logged_in?
+    assert_not flash.empty?
+    assert_redirected_to @reset_user
   end
 end
