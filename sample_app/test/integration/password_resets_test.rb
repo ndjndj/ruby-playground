@@ -74,7 +74,10 @@ class PasswordUpdateTest < PasswordResetForm
     patch password_reset_path(@reset_user.reset_token),
           params: {
             email: @reset_user.email,
-            user: {password: "", password_confirmation: ""}
+            user: {
+              password: "foobaz",
+              password_confirmation: "barquux"
+            }
           }
   end
 end
