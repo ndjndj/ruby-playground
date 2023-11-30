@@ -112,6 +112,7 @@ end
 
 class ExpiredToken < PasswordResets
   def setup
+    super
     post password_resets_path,
          params: {password_reset: {email: @user.email}}
     @reset_user = assigns(:user)
@@ -134,6 +135,6 @@ class ExpiredTokenTest < ExpiredToken
 
   test "should include the word 'expired' on the password-reset page" do
     follow_redirect!
-    assert_match //i, response.body
+    assert_match /expired/i, response.body
   end
 end
