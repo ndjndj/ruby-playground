@@ -3,6 +3,7 @@ require "test_helper"
 class PasswordResets < ActionDispatch::IntegrationTest
   def setup
     ActionMailer::Base.deliveries.clear
+    @user = users(:michael)
   end
 end
 
@@ -35,7 +36,7 @@ class PasswordFormTest < PasswordResetForm
   test "reset with valid email" do
     assert_not_equal @user.reset_digest, @reset_user.reset_digest
     assert_equal 1, ActionMailer::Base.deliveries.size
-    asssert_not flash.empty?
+    assert_not flash.empty?
     assert_redirected_to root_url
   end
 
