@@ -12,6 +12,10 @@ class ForgotPasswordFormTest < PasswordResets
     assert_template "password_resets/new"
     assert_select "input[name=?]", "password_reset[email]"
   end
+
+  test "reset path with invalid email" do
+    post password_resets_path, params: {password_reset: {email: ""}}
+  end
 end
 
 class PasswordResetsTest < ActionDispatch::IntegrationTest
