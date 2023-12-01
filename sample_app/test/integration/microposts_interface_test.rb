@@ -68,3 +68,22 @@ class MicropostSidebarTest < MicropostsInterface
     assert_match /1 micropost/i, response.body
   end
 end
+
+class ImageUploadTest < MicropostsInterface
+  test "should have a file input field for images" do
+    get root_path
+    assert_select 'input[type=file]'
+  end
+
+  test "should be able to attach an image" do
+    content = "This micropost really ties the room together."
+    img = fixture_file_upload("kitten.jpg", "image/jpeg", type: :binary)
+    post microposts_path, params: {
+      micropost: {
+        content: content,
+        image: img
+      }
+    }
+    assert assigns(@micropost).image.attached?
+  end
+end
