@@ -84,6 +84,6 @@ class ImageUploadTest < MicropostsInterface
         image: img
       }
     }
-    assert assigns(@micropost).image.attached?
+    assert assigns(:micropost).image.attached?
   end
 end
