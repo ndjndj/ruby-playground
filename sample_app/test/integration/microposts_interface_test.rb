@@ -31,4 +31,21 @@ class MicropostsInterfaceTest < MicropostsInterface
     follow_redirect!
     assert_match content, response.body
   end
+
+  test "should have micropost delete links on own profile page" do
+    get user_path(@user)
+    assert_select "a", text: "delete"
+  end
+
+  test "should be able to delete own micropost" do
+    first_micropost = @user.microposts.paginate(page: 1).first
+    assert_difference "Micropost.count", -1 do
+      delete micropost_path(first_micropost)
+    end
+  end
+
+  test "should not have delete links on other user's profile page" do
+    get user_pat(users(:archer))
+    assert_select "a", {text: "delete", count: 0}
+  end
 end
