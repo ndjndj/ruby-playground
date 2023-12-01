@@ -45,7 +45,7 @@ class MicropostsInterfaceTest < MicropostsInterface
   end
 
   test "should not have delete links on other user's profile page" do
-    get user_pat(users(:archer))
+    get user_path(users(:archer))
     assert_select "a", {text: "delete", count: 0}
   end
 end
