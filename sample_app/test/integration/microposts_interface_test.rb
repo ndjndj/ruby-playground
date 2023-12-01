@@ -18,5 +18,7 @@ class MicropostsInterfaceTest < MicropostsInterface
     assert_no_difference "Micropost.count" do
       post microposts_path, params: {micropost: {content: ""}}
     end
+    assert_select "div#error_explanation"
+    assert_select "a[href=?]", "/?page=2"
   end
 end
