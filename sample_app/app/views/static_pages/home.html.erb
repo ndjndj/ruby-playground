@@ -1,5 +1,7 @@
 <% if logged_in? %>
-    <%= render "logged_in" %>
+    <%= render "static_pages/logged_in" %>
+    <%#= render "shared/user_info" %>
+    <%#= render "shared/micropost_form" %>
 <% else %>
-    <%= render "welcome" %>
+    <%= render "static_pages/welcome" %>
 <% end %>
