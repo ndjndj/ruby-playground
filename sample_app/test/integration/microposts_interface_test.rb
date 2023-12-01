@@ -21,4 +21,14 @@ class MicropostsInterfaceTest < MicropostsInterface
     assert_select "div#error_explanation"
     assert_select "a[href=?]", "/?page=2"
   end
+
+  test "should create a micropost on valid submission" do
+    content = "This micropost really ties the room together"
+    assert_difference "Micropost.count", 1 do
+      post microposts_path, params: {micropost: {content: content}}
+    end
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_match content, response.body
+  end
 end
