@@ -14,7 +14,9 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url, statis: :see_other
   end
 
   private
