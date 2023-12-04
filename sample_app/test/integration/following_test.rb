@@ -42,7 +42,7 @@ class FollowTest < Following
   test "should follow a user with Hotwire" do
     assert_difference "@user.following.count", 1 do
       post relationships_path(format: :turbo_stream),
-           params: {followed_id: @other_id}
+           params: {followed_id: @other.id}
     end
   end
 end
