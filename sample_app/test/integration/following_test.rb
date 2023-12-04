@@ -39,7 +39,7 @@ class UnFollow < Following
   end
 end
 
-class UnfollowTest < UnFollow
+class UnFollowTest < UnFollow
   test "should unfollow a user the standart way" do
     assert_difference "@user.following.count", -1 do
       delete relationship_path(@relationship)
