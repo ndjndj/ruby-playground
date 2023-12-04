@@ -84,7 +84,7 @@ class User < ApplicationRecord
 
   def feed
     following_ids = "
-                    SELECT follower_id FROM relationships
+                    SELECT followed_id FROM relationships
                     WHERE follower_id = :user_id
                   "
     Micropost.where("
