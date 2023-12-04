@@ -21,5 +21,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get users_path
     assert_select "title", full_title("All users")
+    assert_match "#{@user.following.count.to_s}", response.body
+    assert_match "#{@user.followers.count.to_s}", response.body
   end
 end
