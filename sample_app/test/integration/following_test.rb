@@ -31,6 +31,22 @@ class FollowingTest < Following
 
 end
 
+class FollowTest < Following
+  test "should follow a usre the standard way" do
+    assert_difference "@user.following.count", 1 do
+      post relationships_path, params: {followed_id: @other.id}
+    end
+    assert_redirected_to @other
+  end
+
+  test "should follow a user with Hotwire" do
+    assert_difference "@user.following.count", 1 do
+      post relationships_path(format: :turbo_stream),
+           params: {followed_id: @other_id}
+    end
+  end
+end
+
 class UnFollow < Following
   def setup
     super
