@@ -6,11 +6,8 @@ type SimpleButtonProps = {
 }
 
 const SimpleButton: React.FC<SimpleButtonProps> = (props) => {
-    const handleOnClick = () => {
-        console.log("Clicked!!!")
-    }
 
-    return <button onClick={handleOnClick}>{props.text}</button>
+    return <button onClick={props.onClick}>{props.text}</button>
 }
 
 export default SimpleButton
