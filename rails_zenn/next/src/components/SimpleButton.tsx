@@ -1,7 +1,8 @@
 import React from 'react'
 
 type SimpleButtonProps = {
-    text: String
+    text: String,
+    onClick: () => void
 }
 
 const SimpleButton: React.FC<SimpleButtonProps> = (props) => {
