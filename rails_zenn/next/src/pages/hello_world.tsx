@@ -2,6 +2,9 @@ import type { NextPage } from 'next'
 import SimpleButton from '@/components/SimpleButton'
 
 const HelloWorld: NextPage = () => {
+    const handleOnClick = () => {
+        console.log("Clicked from hello_world")
+    }
     return (
         <>
             <h1>Title</h1>
