@@ -10,7 +10,7 @@ const HelloWorld: NextPage = () => {
             <h1>Title</h1>
             <p>content</p>
             <SimpleButton 
-                text={"From HelloWorld."} 
+                text={"From HelloWorld.!!!!"} 
                 onClick={handleOnClick} 
             />
         </>
