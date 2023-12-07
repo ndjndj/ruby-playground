@@ -45,3 +45,19 @@ Lint/AmbiguousBlockAssociation:
 
 Lint/DeprecatedOpenSSLConstant:
   Enabled: false
+
+Lint/DuplicatedElsifCondition:
+  Enabled: true
+
+Lint/EmptyWhen:
+  Enabled: false 
+
+Lint/InheritException: 
+  EnforcedStyle: standard_error 
+
+Lint/MixedRegexpCaptureTypes: 
+  Enabled: true 
+
+Lint/UnderscorePrefixedVaribaleName: 
+  Enabled: false 
+
