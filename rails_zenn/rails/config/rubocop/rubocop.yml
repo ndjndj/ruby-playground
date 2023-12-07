@@ -16,3 +16,7 @@ Layout/DotPosition:
 
 Layout/EmptyLinesAroundAttributeAccessor: 
   Enabled: true
+
+Layaout/ExtraSpacing: 
+  Exclude: 
+    - "db/migrate/*.rb"
