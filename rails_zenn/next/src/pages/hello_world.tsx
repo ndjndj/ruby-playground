@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import SimpleButton from '@/components/SimpleButton'
 
 const HelloWorld: NextPage = () => {
     return (
