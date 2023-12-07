@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 
 const HelloWorld: NextPage = () => {
-    return <div>Hello World!</div>
+    const count = 100
+    return <div>Hello World! / { count }</div>
 }
 
 export default HelloWorld
