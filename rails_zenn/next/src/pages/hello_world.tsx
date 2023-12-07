@@ -1,8 +1,12 @@
 import type { NextPage } from 'next'
 
 const HelloWorld: NextPage = () => {
-    const count = 100
-    return <div>Hello World! / { count }</div>
+    return (
+        <div>
+            <h1>Title</h1>
+            <p>content</p>
+        </div>
+    )
 }
 
 export default HelloWorld
