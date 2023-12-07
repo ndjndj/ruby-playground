@@ -38,3 +38,10 @@ Layout/SpaceInsideBlockBraces:
 
 Layout/SpaceAroundMethodCallOperator: 
   Enabled: true
+
+Lint/AmbiguousBlockAssociation:
+  Exclude: 
+    - "spec/**/*_spec.rb"
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: false
