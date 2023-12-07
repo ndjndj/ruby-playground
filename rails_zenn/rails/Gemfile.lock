@@ -154,7 +154,7 @@ DEPENDENCIES
   bootsnap
   mysql2 (~> 0.5)
   puma (~> 5.0)
-  rails (~> 7.0.4)
+  rails (~> 7.0.8)
   tzinfo-data
 
 RUBY VERSION
