@@ -9,7 +9,7 @@ const SimpleButton: React.FC<SimpleButtonProps> = (props) => {
         console.log("Clicked!")
     }
 
-    return <button onClick={handleOnClick}>Click Here</button>
+    return <button onClick={handleOnClick}>{props.text}</button>
 }
 
 export default SimpleButton
