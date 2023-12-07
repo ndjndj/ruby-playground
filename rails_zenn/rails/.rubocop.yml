@@ -1,7 +1,7 @@
 require:
-  -rubocop-rails 
+  - rubocop-rails 
 
-inherit_form:
+inherit_from:
   - config/rubocop/rubocop.yml 
   - config/rubocop/rails.yml 
   - config/rubocop/rspec.yml 
