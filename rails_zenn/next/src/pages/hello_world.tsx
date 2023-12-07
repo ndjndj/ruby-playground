@@ -1,0 +1,5 @@
+import type { NextPage } from 'next'
+
+const HelloWorld: NextPage = () => {
+    return <div>Hello World!</div>
+}
