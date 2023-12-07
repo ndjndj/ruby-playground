@@ -32,5 +32,7 @@ services:
       - ./next:/app 
     ports: 
       - "8000:3000"
+    environment:
+      - WATCHPACK_POLLING=true
 volumes: 
   mysql_data: 
