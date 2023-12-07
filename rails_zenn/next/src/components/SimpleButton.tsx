@@ -1,6 +1,10 @@
 import React from 'react'
 
-const SimpleButton: React.FC = () => {
+type SimpleButtonProps = {
+    text: String
+}
+
+const SimpleButton: React.FC<SimpleButtonProps> = (props) => {
     const handleOnClick = () => {
         console.log("Clicked!")
     }
