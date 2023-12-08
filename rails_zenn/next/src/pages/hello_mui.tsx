@@ -10,7 +10,7 @@ const HelloMui: NextPage = () => {
                     p: 6, 
                     ml: 2, 
                     mt: 3, 
-                    color: 'white', 
+                    color: { xs: 'white', md: 'red' }, 
                     textTransform: 'none' 
                 }}
             >
