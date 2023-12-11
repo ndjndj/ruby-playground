@@ -13,5 +13,7 @@ class ArticleSerializer < ActiveModel::Serializer
             + now.month - created_at.month
             - ((now.day > created_at.day) ? 0 : 1)
     years = months.div(12)
+
+  return "#{years}年前" if years > 0
   end
 end
