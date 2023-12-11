@@ -7,6 +7,8 @@ gem "active_model_serializers"
 
 gem "bootsnap", require: false
 
+gem "bullet"
+
 gem "config"
 
 gem "devise"
