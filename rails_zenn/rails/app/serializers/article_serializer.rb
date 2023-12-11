@@ -2,13 +2,14 @@ class ArticleSerializer < ActiveModel::Serializer
   attributes :id, :title, :content, :status, :created_at, :from_today
   belongs_to :user, serializer: UserSerializer
 
+  def status
+    object.status_i18n
+  end
+
   def created_at
     object.created_at.strftime("%Y/%m/%d")
   end
 
-  def status
-    object.status_i18n
-  end
 
   def from_today
     now = Time.zone.now
