@@ -35,7 +35,7 @@ RSpec.describe Article, type: :model do
 
     context "ステータスが未保存かつ、すでに同一ユーザーが未保存ステータスの記事を所有していたとき" do
       let(:status) { :unsaved }
-      before { create(:article), status: :unsaved, user: }
+      before { create(:article, status: :unsaved, user:) }
 
       it "例外が発生する" do
         expect { subject }.to raise_error(StandardError)
