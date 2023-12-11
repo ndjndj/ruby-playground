@@ -8,7 +8,6 @@ class Api::V1::ArticlesController < Api::V1::BaseController
               .page(params[:page] || 1)
               .per(10)
               .includes(:user)
-    binding.pry
     render json: articles, meta: pagination(articles), adapter: :json
   end
 
