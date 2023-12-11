@@ -29,6 +29,15 @@ RSpec.describe Article, type: :model do
 
       it "エラーメッセージが返る" do
         expect(subject).to be_falsy
+        expect(article.errors.full_messages).to eq ["タイトルを入力してください"]
+      end
+    end
+
+    context "ステータスが公開済みかつ、本文が空のとき" do
+      let(:content) { "" }
+
+      it "エラーメッセージが返る" do
+        expect(subject).to be_falsy
         expect(article.errors.full_messages).to eq ["本文を入力してください"]
       end
     end
