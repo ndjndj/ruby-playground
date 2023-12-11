@@ -50,7 +50,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
     let(:article) { create(:article, status:) }
 
     context "article_id に対応する articles レコードが存在するとき" do
-      let(:article_id) { article_id }
+      let(:article_id) { article.id }
 
       context "articles レコードのステータスが公開中のとき" do
         let(:status) { :published }
