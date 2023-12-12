@@ -31,9 +31,39 @@ const Header = () => {
                             />
                         </Link>
                     </Box>
-
+                    <Box>
+                        <Button
+                            color="primary"
+                            variant="contained"
+                            sx={{
+                                color: 'white',
+                                textTransform: 'none',
+                                fontSize: 16,
+                                borderRadius: 2,
+                                boxShadow: 'none'
+                            }}
+                        >
+                            Sign in
+                        </Button>
+                        <Button
+                            color="primary"
+                            variant="outlined"
+                            sx={{
+                                textTransform: 'none',
+                                fontSize: 16,
+                                borderRadius: 2,
+                                boxShadow: 'none',
+                                border: '1.5px solid #3EA8FF',
+                                ml: 2
+                            }}
+                        >
+                            Sign up
+                        </Button>
+                    </Box>
                 </Box>
             </Container>
         </AppBar>
     )
 }
+
+export default Header
