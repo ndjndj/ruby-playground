@@ -23,6 +23,10 @@ RSpec.describe "Api::V1::Current::Articles", type: :request do
 
       it "未保存ステータスの記事が新規作成される" do
         expect { subject }.not_to change { current_user.articles.count }
+        res = JSON.parse(response.body)
+        expect(res.keys).to eq ["id", "title", "content", "status", "created_at", "from_today", "user"]
+        expect(res["user"].keys).to eq ["name"]
+        expect(response).to have_http_status(:ok)
       end
     end
   end
