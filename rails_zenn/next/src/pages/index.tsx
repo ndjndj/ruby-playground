@@ -53,6 +53,13 @@ const Index: NextPage = () => {
             </Grid>
           ))}
         </Grid>
+        <Box sx={{ display: 'flex', justifyContent: 'center', py: 6 }}>
+            <Pagination
+              count={meta.totalPages}
+              page={meta.currentPage}
+              onChange={handleChange}
+            />
+        </Box>
       </Container>
     </Box>
   )
