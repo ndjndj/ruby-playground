@@ -69,5 +69,14 @@ RSpec.describe "Api::V1::Current::Articles", type: :request do
       end
     end
 
+    context ":id がログインユーザーに紐づく articles レコードの id ではないとき" do
+      let(:other_user_article) { create(:article, user: other_user) }
+      let(:id) { other_user_article.id }
+
+      it "例外が発生する" do
+        expect { subject }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
   end
 end
