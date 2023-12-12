@@ -30,4 +30,23 @@ RSpec.describe "Api::V1::Current::Articles", type: :request do
       end
     end
   end
+
+  describe "PATCH api/v1/current/articles" do
+    subject { patch(api_v1_current_article_path(id), headers:, params:) }
+
+    let(:headers) { current_user.create_new_auth_token }
+    let(:current_user) { create(:user) }
+    let(:other_user) { create(:user) }
+    let(:params) {
+      {
+        "article": {
+            "title": "テストタイトル2",
+            "content": "テスト本文2",
+            "status": "published"
+        }
+      }
+    }
+
+    
+  end
 end
