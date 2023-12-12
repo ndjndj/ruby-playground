@@ -1,4 +1,4 @@
-import { Box, Grid, Container } from '@mui/material'
+import { Box, Grid, Container, Pagination } from '@mui/material'
 import camelcaseKeys from 'camelcase-keys'
 import type { NextPage } from 'next'
 import Link from 'next/link'
