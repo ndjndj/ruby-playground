@@ -114,3 +114,5 @@ const SignIn: NextPage = () => {
         </Box>
     )
 }
+
+export default SignIn
