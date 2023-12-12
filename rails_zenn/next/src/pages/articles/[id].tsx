@@ -203,3 +203,5 @@ const ArticleDetail: NextPage = () => {
         </Box>
     )
 }
+
+export default ArticleDetail
