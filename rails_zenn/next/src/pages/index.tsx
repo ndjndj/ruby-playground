@@ -1,20 +1,17 @@
+import { Box, Grid, Container } from '@mui/material'
+import camelcaseKeys from 'camelcase-keys'
 import type { NextPage } from 'next'
+import Link from 'next/link'
 import useSWR from 'swr'
+import ArticleCard from '@/components/ArticleCard'
 import { fetcher } from '@/utils'
 
-const Index: NextPage = () => {
-  const url = 'http://localhost:3000/api/v1/health_check'
-  const { data, error } = useSWR(url, fetcher)
-
-  if (error) return <div>An error has occurred.</div>
-  if (!data) return <div>Loading...</div>
-
-  return (
-    <>
-      <div>Rails疎通確認</div>
-      <div>レスポンスメッセージ: {data.message}</div>
-    </>
-  )
+type ArticleProps = {
+  id: number 
+  title: string 
+  createdAt: string 
+  fromToday: string 
+  user: {
+    name: string
+  }
 }
-
-export default Index
