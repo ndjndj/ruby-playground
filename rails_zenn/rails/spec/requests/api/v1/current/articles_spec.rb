@@ -19,7 +19,7 @@ RSpec.describe "Api::V1::Current::Articles", type: :request do
     end
 
     context "ログインユーザーに紐づく未保存ステータスの記事が 1 件のとき" do
-      before { create(:article, user: current_user, status: unsaved) }
+      before { create(:article, user: current_user, status: :unsaved) }
 
       it "未保存ステータスの記事が新規作成される" do
         expect { subject }.not_to change { current_user.articles.count }
@@ -52,16 +52,9 @@ RSpec.describe "Api::V1::Current::Articles", type: :request do
       let(:id) { current_user_article.id }
 
       it "正常にレコードを更新することができる" do
-        expect { subject }.to
-          change {
-            current_user_article.reload.title
-          }.from("テストタイトル1").to("テストタイトル2") and
-          change {
-            current_user_article.reload.content
-          }.from("テスト本文1").to("テスト本文2") and
-          change {
-            current_user_article.reload.status
-          }.from("draft").to("published")
+        expect { subject }.to change { current_user_article.reload.title }.from("テストタイトル1").to("テストタイトル2") and
+          change { current_user_article.reload.content }.from("テスト本文1").to("テスト本文2") and
+          change { current_user_article.reload.status }.from("draft").to("published")
         res = JSON.parse(response.body)
         expect(res.keys).to eq ["id", "title", "content", "status", "created_at", "from_today", "user"]
         expect(res["user"].keys).to eq ["name"]
