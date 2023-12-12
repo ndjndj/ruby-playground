@@ -18,6 +18,12 @@ RSpec.describe "Api::V1::Current::Articles", type: :request do
       end
     end
 
-    
+    context "ログインユーザーに紐づく未保存ステータスの記事が 1 件のとき" do
+      before { create(:article, user: current_user, status: unsaved) }
+
+      it "未保存ステータスの記事が新規作成される" do
+        expect { subject }.not_to change { current_user.articles.count }
+      end
+    end
   end
 end
