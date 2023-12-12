@@ -90,11 +90,13 @@ const SignIn: NextPage = () => {
                         name="email"
                         control={control}
                         rules={validationRules.email}
-                        render={({ field }) => (
+                        render={({ field, fieldState }) => (
                             <TextField 
                                 {...field}
                                 type="text"
                                 label="メールアドレス"
+                                error={fieldState.invalid}
+                                helperText={fieldState.error?.message}
                                 sx={{ backgroundColor: 'white' }}
                             />
                         )}
@@ -104,11 +106,13 @@ const SignIn: NextPage = () => {
                         name="password"
                         control={control}
                         rules={validationRules.password}
-                        render={({ field }) => (
+                        render={({ field, fieldState }) => (
                             <TextField 
                                 {...field}
                                 type="password"
                                 label="パスワード"
+                                error={fieldState.invalid}
+                                helperText={fieldState.error?.message}
                                 sx={{ backgroundColor: 'white' }}
                             />
                         )}
