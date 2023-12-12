@@ -9,6 +9,7 @@ import Error from '@/components/Error'
 import Loading from '@/components/Loading'
 import { styles } from '@/styles'
 import { fetcher } from '@/utils'
+import React from 'react'
 
 type ArticleProps = {
   id: number 
@@ -31,6 +32,10 @@ const Index: NextPage = () => {
 
   const articles = camelcaseKeys(data.articles)
   const meta = camelcaseKeys(data.meta)
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    router.push('/?page' + value)
+  }
 
   return (
     <Box css={styles.pageMinHeight} sx={{ backgroundColor: '#e6f2ff' }}>
