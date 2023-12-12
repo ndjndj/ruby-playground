@@ -27,7 +27,7 @@ const Index: NextPage = () => {
   const articles = camelcaseKeys(data.articles)
 
   return (
-    <Box sx={{ backgroundColor: '#e6f2ff' }}>
+    <Box css={styles.pageMinHeight} sx={{ backgroundColor: '#e6f2ff' }}>
       <Container maxWidth="md" sx={{ pt: 6 }}>
         <Grid container spacing={4}>
           {articles.map((article: ArticleProps, i: number) => (
