@@ -126,6 +126,78 @@ const ArticleDetail: NextPage = () => {
                             </Box>
                         </Card>
                     </Box>
+                    <Box
+                        sx={{
+                            display: { xs: 'none', lg: 'block' },
+                            width: 300, 
+                            minWidth: 300
+                        }}
+                    >
+                        <Card sx={{ boxShadow: 'none', borderRadius: '12px' }}>
+                            <List sx={{ color: '#6E7B85' }}>
+                                <ListItem divider>
+                                    <Box 
+                                        sx={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            widht: '100%'
+                                        }}
+                                    >
+                                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                            <Box sx={{ pr: 1 }}>
+                                                <PersonIcon />
+                                            </Box>
+                                            <ListItemText primary="著者" />
+                                        </Box>
+                                        <Box>
+                                            <ListItemText primary={article.user.name}/>
+                                        </Box>
+                                    </Box>
+                                </ListItem>
+                                <ListItem divider>
+                                    <Box 
+                                        sx={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            widht: '100%'
+                                        }}
+                                    >
+                                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                            <Box sx={{ pr: 1 }}>
+                                                <PersonIcon />
+                                            </Box>
+                                            <ListItemText primary="公開" />
+                                        </Box>
+                                        <Box>
+                                            <ListItemText primary={article.createdAt}/>
+                                        </Box>
+                                    </Box>
+                                </ListItem>
+                                <ListItem>
+                                    <Box 
+                                        sx={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            widht: '100%'
+                                        }}
+                                    >
+                                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                            <Box sx={{ pr: 1 }}>
+                                                <PersonIcon />
+                                            </Box>
+                                            <ListItemText primary="本文更新" />
+                                        </Box>
+                                        <Box>
+                                            <ListItemText primary={article.updatedAt}/>
+                                        </Box>
+                                    </Box>
+                                </ListItem>
+                            </List>
+                        </Card>
+                    </Box>
                 </Box>
             </Container>
         </Box>
