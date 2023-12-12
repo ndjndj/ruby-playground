@@ -21,7 +21,9 @@ type ArticleProps = {
 }
 
 const Index: NextPage = () => {
-  const url = process.env.NEXT_PUBLIC_API_BASE_URL + '/articles'
+  const router = useRouter()
+  const page = 'page' in router.query ? Number(router.query.page) : 1
+  const url = process.env.NEXT_PUBLIC_API_BASE_URL + '/articles/?page=' + page
 
   const { data, error } = useSWR(url, fetcher)
   if (error) return <div>{error}</div>
