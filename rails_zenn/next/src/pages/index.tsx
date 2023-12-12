@@ -34,7 +34,7 @@ const Index: NextPage = () => {
   const meta = camelcaseKeys(data.meta)
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-    router.push('/?page' + value)
+    router.push('/?page=' + value)
   }
 
   return (
