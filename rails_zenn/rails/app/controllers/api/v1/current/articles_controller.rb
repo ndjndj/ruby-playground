@@ -8,7 +8,7 @@ class Api::V1::Current::ArticlesController < Api::V1::BaseController
 
   def show
     article = current_user.articles.find(params[:id])
-    render json: article, serializer: CurrentArticleSerializer
+    render json: article
   end
 
   def create
