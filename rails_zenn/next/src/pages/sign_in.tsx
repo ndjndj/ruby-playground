@@ -89,6 +89,7 @@ const SignIn: NextPage = () => {
                     <Controller
                         name="email"
                         control={control}
+                        rules={validationRules.email}
                         render={({ field }) => (
                             <TextField 
                                 {...field}
@@ -102,6 +103,7 @@ const SignIn: NextPage = () => {
                     <Controller
                         name="password"
                         control={control}
+                        rules={validationRules.password}
                         render={({ field }) => (
                             <TextField 
                                 {...field}
