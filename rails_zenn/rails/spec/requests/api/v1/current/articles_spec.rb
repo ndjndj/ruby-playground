@@ -52,6 +52,15 @@ RSpec.describe "Api::V1::Current::Articles", type: :request do
         expect(response).to have_http_status(:ok)
       end
     end
+
+    context ":id がログインユーザーに紐づく articles レコードの id ではないとき" do
+      let(:other_user_article) { create(:article) }
+      let(:id) { other_user_article.id }
+
+      it "例外が発生する" do
+        expect { subject }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
   end
 
   describe "POST api/v1/current/articles" do
