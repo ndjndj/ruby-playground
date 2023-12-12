@@ -166,7 +166,7 @@ const ArticleDetail: NextPage = () => {
                                     >
                                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                                             <Box sx={{ pr: 1 }}>
-                                                <PersonIcon />
+                                                <ArticleIcon />
                                             </Box>
                                             <ListItemText primary="公開" />
                                         </Box>
@@ -186,7 +186,7 @@ const ArticleDetail: NextPage = () => {
                                     >
                                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                                             <Box sx={{ pr: 1 }}>
-                                                <PersonIcon />
+                                                <UpdateIcon />
                                             </Box>
                                             <ListItemText primary="本文更新" />
                                         </Box>
