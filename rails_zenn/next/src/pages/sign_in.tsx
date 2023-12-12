@@ -23,6 +23,19 @@ const SignIn: NextPage = () => {
         defaultValues: { email: '', password: '' }
     })
 
+    const validationRules = {
+        email: {
+            required: 'メールアドレスを入力してください',
+            pattern: {
+                value: /^[a-zA-Z0-9_+-]+(.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/,
+                message: '正しい形式のメールアドレスを入力してください'
+            }
+        },
+        password: {
+            required: 'パスワードを入力してください'
+        }
+    }
+
     const onSubmit: SubmitHandler<SignInFormData> = (data) => {
         const url = process.env.NEXT_PUBLIC_API_BASE_URL + '/auth/sign_in'
         const headers = { 'Content-Type': 'application/json' }
