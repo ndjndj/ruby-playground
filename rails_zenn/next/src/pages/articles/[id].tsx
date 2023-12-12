@@ -48,12 +48,33 @@ const ArticleDetail: NextPage = () => {
                 minHeight: 'calc(100vh - 57px)'
             }}
         >
-            <Box sx={{ pr: 1 }}>
-                <PersonIcon />
+            <Box
+                sx={{
+                    display: { xs: 'flex', lg: 'none' },
+                    alignItems: 'center',
+                    backgroundColor: 'white',
+                    borderTop: '0.5px solid #ACBCC7',
+                    height: 56, 
+                    pl: 4,
+                    color: '#6E7B85'
+                }}
+            >
+                <Box sx={{ pr: 1 }}>
+                    <PersonIcon />
+                </Box>
+                <Box sx={{ mr: 2 }}>
+                    <Typography component="p">著者:</Typography>
+                </Box>
+                <Typography 
+                    component="p" 
+                    sx={{ fontWeight: 'bold', color: 'black' }}
+                >
+                    {article.user.name}
+                </Typography>
             </Box>
-            <Box sx={{ mr: 2 }}>
-                <Typography component="p">著者:</Typography>
-            </Box>
+            <Container maxWidth="lg">
+                
+            </Container>
         </Box>
     )
 }
