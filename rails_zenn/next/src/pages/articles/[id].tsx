@@ -73,7 +73,33 @@ const ArticleDetail: NextPage = () => {
                 </Typography>
             </Box>
             <Container maxWidth="lg">
-                
+                <Box sx={{ pt: 6, pb: 3 }}>
+                    <Box sx={{ maxWidth: 840, m: 'auto', textAlign: 'center' }}>
+                        <Typography
+                            component="h2"
+                            sx={{
+                                fontSize: { xs: 21, sm: 25 },
+                                fontWeight: 'bold'
+                            }}
+                        >
+                            {article.title}
+                        </Typography>
+                    </Box>
+                    <Typography
+                        component="p"
+                        align="center"
+                        sx={{
+                            display: {
+                                xs: 'block',
+                                lg: 'none'
+                            },
+                            color: '#6E7B85',
+                            mt: '20px'
+                        }}
+                    >
+                        {article.createdAt} に公開
+                    </Typography>
+                </Box>
             </Container>
         </Box>
     )
