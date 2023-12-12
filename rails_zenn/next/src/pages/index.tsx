@@ -26,11 +26,11 @@ const Index: NextPage = () => {
   const url = process.env.NEXT_PUBLIC_API_BASE_URL + '/articles/?page=' + page
 
   const { data, error } = useSWR(url, fetcher)
-  if (error) return <div>{error}</div>
   if (error) return <Error />
   if (!data) return <Loading />
 
   const articles = camelcaseKeys(data.articles)
+  const meta = camelcaseKeys(data.meta)
 
   return (
     <Box css={styles.pageMinHeight} sx={{ backgroundColor: '#e6f2ff' }}>
