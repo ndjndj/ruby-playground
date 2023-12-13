@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Container } from '@mui/material'
+import { AppBar, Box, Button, Container, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useUserState } from '@/hooks/useGlobalState'
@@ -34,7 +34,9 @@ const Header = () => {
                             />
                         </Link>
                     </Box>
-                    <div>{user.isFetched}</div>
+                    <Box>
+                        <Typography>{String(user.isFetched)}</Typography>
+                    </Box>
                     {user.isFetched && (
                         <>
                             {!user.isSignedIn && (
