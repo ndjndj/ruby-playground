@@ -41,6 +41,11 @@ const CurrentUserFetch = () => {
                     isFetched: true
                 })
             })
+        } else {
+            setUser({
+                ...user,
+                isFetched: true
+            })
         }
     })
 }
