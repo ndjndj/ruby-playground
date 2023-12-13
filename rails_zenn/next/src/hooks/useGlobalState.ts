@@ -16,4 +16,14 @@ export const useUserState = () => {
         isSignedIn: false, 
         isFetched: false
     }
+
+    const { data: state, mutate: setState } = useSWR(
+        'user', 
+        null, 
+        {
+            fallbackData: fallbackData
+        }
+    )
+
+    return [state, setState] as [userStateType, (value: userStateType) => void]
 }
