@@ -27,6 +27,13 @@ const CurrentUserFetch = () => {
                     client: _get('client'),
                     uid: _get('uid')
                 }
+            }).then((res: AxiosResponse) => {
+                setUser({
+                    ...user, 
+                    ...res.data, 
+                    isSignedIn: true, 
+                    isFetched: true
+                })
             })
         }
     })
