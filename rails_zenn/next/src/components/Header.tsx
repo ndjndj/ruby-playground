@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { useUserState } from '@/hooks/useGlobalState'
 
 const Header = () => {
+    const [user] = useUserState()
+
     return (
         <AppBar
             position="static"
