@@ -19,6 +19,7 @@ type SignInFormData = {
 
 const SignIn: NextPage = () => {
     const router = useRouter()
+    const [isLoading, setIsLoading] = useState(false)
 
     const { handleSubmit, control } = useForm<SignInFormData>({
         defaultValues: { email: '', password: '' }
@@ -38,6 +39,7 @@ const SignIn: NextPage = () => {
     }
 
     const onSubmit: SubmitHandler<SignInFormData> = (data) => {
+        setIsLoading(true)
         const url = process.env.NEXT_PUBLIC_API_BASE_URL + '/auth/sign_in'
         const headers = { 'Content-Type': 'application/json' }
 
@@ -59,6 +61,7 @@ const SignIn: NextPage = () => {
             router.push('/')
         }).catch((e: AxiosError<{ error: string }>) => {
             console.log(e.message)
+            setIsLoading(false)
         })
     }
 
