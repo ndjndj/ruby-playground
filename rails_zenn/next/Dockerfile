@@ -1,5 +1,5 @@
 FROM node:19.4.0 
-WORKDIR /home/node/app
+WORKDIR /app
 
 RUN npm install
 
