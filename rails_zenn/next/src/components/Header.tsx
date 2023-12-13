@@ -34,9 +34,7 @@ const Header = () => {
                             />
                         </Link>
                     </Box>
-                    <Box>
-                        <Typography>{String(user.isFetched)}</Typography>
-                    </Box>
+                    
                     {user.isFetched && (
                         <>
                             {!user.isSignedIn && (
