@@ -72,7 +72,6 @@ const Header = () => {
                             {user.isSignedIn && <Box>{user.name}</Box>}
                         </>
                     )}
-                    
                 </Box>
             </Container>
         </AppBar>
