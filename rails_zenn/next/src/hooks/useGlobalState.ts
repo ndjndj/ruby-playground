@@ -8,4 +8,12 @@ export const useUserState = () => {
         isSignedIn: boolean 
         isFetched: boolean
     }
+
+    const fallbackData: userStateType = {
+        id: 0,
+        name: "",
+        email: "",
+        isSignedIn: false, 
+        isFetched: false
+    }
 }
