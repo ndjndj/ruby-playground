@@ -34,6 +34,7 @@ const Header = () => {
                             />
                         </Link>
                     </Box>
+                    <div>{user.isFetched}</div>
                     {user.isFetched && (
                         <>
                             {!user.isSignedIn && (
