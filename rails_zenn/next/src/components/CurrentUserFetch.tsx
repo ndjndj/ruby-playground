@@ -48,4 +48,8 @@ const CurrentUserFetch = () => {
             })
         }
     })
+
+    return <></>
 }
+
+export default CurrentUserFetch
