@@ -47,7 +47,7 @@ const CurrentUserFetch = () => {
                 isFetched: true
             })
         }
-    })
+    }, [user, setUser])
 
     return <></>
 }
