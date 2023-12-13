@@ -1,6 +1,7 @@
 import { AppBar, Box, Button, Container } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useUserState } from '@/hooks/useGlobalState'
 
 const Header = () => {
     return (
