@@ -34,37 +34,45 @@ const Header = () => {
                             />
                         </Link>
                     </Box>
-                    <Box>
-                        <Link href="/sign_in">
-                            <Button
-                                color="primary"
-                                variant="contained"
-                                sx={{
-                                    color: 'white',
-                                    textTransform: 'none',
-                                    fontSize: 16,
-                                    borderRadius: 2,
-                                    boxShadow: 'none'
-                                }}
-                            >
-                                Sign in
-                            </Button>
-                        </Link>
-                        <Button
-                            color="primary"
-                            variant="outlined"
-                            sx={{
-                                textTransform: 'none',
-                                fontSize: 16,
-                                borderRadius: 2,
-                                boxShadow: 'none',
-                                border: '1.5px solid #3EA8FF',
-                                ml: 2
-                            }}
-                        >
-                            Sign up
-                        </Button>
-                    </Box>
+                    {user.isFetched && (
+                        <>
+                            {!user.isSignedIn && (
+                                <Box>
+                                    <Link href="/sign_in">
+                                        <Button
+                                            color="primary"
+                                            variant="contained"
+                                            sx={{
+                                                color: 'white',
+                                                textTransform: 'none',
+                                                fontSize: 16,
+                                                borderRadius: 2,
+                                                boxShadow: 'none'
+                                            }}
+                                        >
+                                            Sign in
+                                        </Button>
+                                    </Link>
+                                    <Button
+                                        color="primary"
+                                        variant="outlined"
+                                        sx={{
+                                            textTransform: 'none',
+                                            fontSize: 16,
+                                            borderRadius: 2,
+                                            boxShadow: 'none',
+                                            border: '1.5px solid #3EA8FF',
+                                            ml: 2
+                                        }}
+                                    >
+                                        Sign up
+                                    </Button>
+                                </Box>
+                            )}
+                            {user.isSignedIn && <Box>{user.name}</Box>}
+                        </>
+                    )}
+                    
                 </Box>
             </Container>
         </AppBar>
