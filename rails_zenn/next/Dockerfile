@@ -1,7 +1,7 @@
 FROM node:19.4.0 
 WORKDIR /home/node/app
 
-COPY ././
+COPY **package.json ./
 RUN npm install
 
 USER node 
