@@ -139,6 +139,7 @@ const Header = () => {
                                                 width: 100, 
                                                 boxShadow: 'none'
                                             }}
+                                            onClick={addNewArticle}
                                         >
                                             Add new
                                         </Button>
