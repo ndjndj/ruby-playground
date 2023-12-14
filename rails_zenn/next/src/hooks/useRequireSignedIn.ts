@@ -10,7 +10,7 @@ export function useRequireSignedIn() {
     useEffect(() => {
         if (user.isFetched && !user.isSignedIn) {
             setSnackbar({
-                message: 'サインイン', 
+                message: 'サインインしてください', 
                 severity: 'error',
                 pathname: '/sign_in'
             })
