@@ -98,7 +98,31 @@ const Header = () => {
                                     </Button>
                                 </Box>
                             )}
-                            {user.isSignedIn && <Box>{user.name}</Box>}
+                            {user.isSignedIn && (
+                                <Box sx={{ display: 'flex' }}>
+                                    <IconButton onClick={handleClick} sx={{ p: 0 }}>
+                                        <Avatar>
+                                            <PersonIcon />
+                                        </Avatar>
+                                    </IconButton>
+                                    <Box sx={{ ml: 2 }}>
+                                        <Button
+                                            color="primary"
+                                            variant="contained"
+                                            sx={{
+                                                color: 'white',
+                                                textTransform: 'none',
+                                                fontSize: 16,
+                                                borderRadius: 2,
+                                                width: 100, 
+                                                boxShadow: 'none'
+                                            }}
+                                        >
+                                            Add new
+                                        </Button>
+                                    </Box>
+                                </Box>
+                            )}
                         </>
                     )}
                 </Box>
