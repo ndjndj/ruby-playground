@@ -84,4 +84,48 @@ const SignUp: NextPage = () => {
 
         SignUp(data)
     }
+
+    return (
+        <Box
+            css={styles.pageMinHeight}
+            sx={{
+                backgroundColor: '#EDF2F7'
+            }}
+        >
+            <Container maxWidth="sm">
+                <Box sx={{ mb: 4, pt: 4 }}>
+                    <Typography
+                        component="h2"
+                        sx={{ fontSize: 32, color: 'black', fontWeight: 'bold' }}
+                    >
+                        Sign Up
+                    </Typography>
+                </Box>
+                <Stack
+                    component="form"
+                    noValidate 
+                    onSubmit={handleSubmit(onSubmit)}
+                    spacing={4}
+                >
+                    <Controller
+                        name="email"
+                        control={control}
+                        rules={validationRules.email}
+                        render={({ field, fieldState }) => (
+                            <TextField
+                                {...field}
+                                type="text"
+                                label="メールアドレス"
+                                error={fieldState.invalid}
+                                helperText={fieldState.error?.message}
+                                sx={{ backgroundColor: 'white' }}
+                            />
+                        )}
+                    />
+
+                    
+                </Stack>
+            </Container>
+        </Box>
+    )
 }
