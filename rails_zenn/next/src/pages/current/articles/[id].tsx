@@ -48,5 +48,46 @@ const CurrentArticleDetail: NextPage = () => {
 
     if (error) return <Error />
     if (!data) return <Loading />
+    
+    const article: CurrentArticleProps = camelcaseKeys(data)
 
+    return (
+        <Box
+            css={styles.pageMinHeight}
+            sx={{
+                backgroundColor: '#EDF2F7',
+                pb: 6
+            }}
+        >
+            <Box
+                sx={{
+                    display: { xs: 'block', lg: 'none' },
+                    backgroundColor: 'white',
+                    borderTop: '0.5px solid #ACBCC7',
+                    height: 56, 
+                    color: '#6E7B85'
+                }}
+            >
+                <Container
+                    maxWidth='sm'
+                    sx={{
+                        display: 'flex', 
+                        justifyContent: 'space-around',
+                        alignItems: 'center',
+                        height: '100%'
+                    }}
+                >
+                    <Box sx={{ display: 'flex', gap: '0 8px' }}>
+                        <SettingsIcon />
+                        <Typography
+                            component="p"
+                            sx={{ mr: 1, fontSize: { xs: 14, sm: 16 } }}
+                        >
+                            ステータス: {article.status}
+                        </Typography>
+                    </Box>
+                </Container>
+            </Box>
+        </Box>
+    )
 }
