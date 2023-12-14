@@ -272,27 +272,19 @@ const CurrentArticlesEdit: NextPage = () => {
                                 pb: 4
                             }}
                         >
-
+                            {watch('title')}
                         </Typography>
-                        <Box>
-                            <Controller 
-                                name="content"
-                                control={control} 
-                                render={({ field, fieldState }) => (
-                                    <TextField 
-                                        {...field}
-                                        type="textarea"
-                                        error={fieldState.invalid}
-                                        helperText={fieldState.error?.message}
-                                        multiline
-                                        fullWidth 
-                                        placeholder="Writer in Markdown Text"
-                                        rows={25}
-                                        sx={{ backgroundColor: 'white' }}
-                                    /> 
-                                )}
-                            />
-                        </Box>
+                        <Card sx={{ boxShadow: 'none', borderRadius: '12px' }}> 
+                            <Box
+                                sx={{
+                                    padding: { xs: '0 24px 24px 24px', sm: '0 40px 40px 40px' },
+                                    marginTop: { xs: '24px', sm: '40px' }
+                                }}
+                            >
+                                <MarkdownText content={watch('content')} />
+                            </Box>
+
+                        </Card>
                     </Box>
                 )}
 
