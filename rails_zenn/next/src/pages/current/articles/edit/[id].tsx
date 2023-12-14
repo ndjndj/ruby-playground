@@ -197,10 +197,10 @@ const CurrentArticlesEdit: NextPage = () => {
                                 checked={statusChecked}
                                 onChange={handleChangeStatusChecked}
                             />
+                            <Typography sx={{ fontSize: { xs: 12, sm: 15 } }}>
+                                下書き/公開
+                            </Typography>
                         </Box>
-                        <Typography sx={{ fontSize: { xs: 12, sm: 15 } }}>
-                            下書き/公開
-                        </Typography>
                     </Box>
                     <LoadingButton
                         variant="contained"
