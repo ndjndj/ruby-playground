@@ -129,7 +129,7 @@ const CurrentArticles: NextPage = () => {
                                 </Box>
                                 <Box>
                                     <Avatar>
-                                        <Tooltip title="編集する">
+                                        <Tooltip title="表示を確認">
                                             <IconButton sx={{ backgroundColor: '#F1F5FA' }}>
                                                 <ChevronRightIcon sx={{ color: '#99AAB6' }} />
                                             </IconButton>
@@ -137,8 +137,8 @@ const CurrentArticles: NextPage = () => {
                                     </Avatar>
                                 </Box>
                             </Box>
-                            <Divider />
                         </Box>
+                        <Divider />
                     </>
                 ))}
             </Container>
