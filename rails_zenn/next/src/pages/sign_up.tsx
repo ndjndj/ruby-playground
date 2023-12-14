@@ -123,6 +123,22 @@ const SignUp: NextPage = () => {
                         )}
                     />
 
+                    <Controller
+                        name="password"
+                        control={control}
+                        rules={validationRules.password}
+                        render={({ field, fieldState }) => (
+                            <TextField
+                                {...field}
+                                type="password"
+                                label="パスワード"
+                                error={fieldState.invalid}
+                                helperText={fieldState.error?.message}
+                                sx={{ backgroundColor: 'white' }}
+                            />
+                        )}
+                    />
+
                     
                 </Stack>
             </Container>
