@@ -204,7 +204,15 @@ const CurrentArticleDetail: NextPage = () => {
                                             width: '100%'
                                         }}
                                     >
-                                        
+                                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                            <Box sx={{ pr: 1 }}>
+                                                <ArticleIcon />
+                                            </Box>
+                                            <ListItemText primary="公開" />
+                                        </Box>
+                                        <Box>
+                                            <ListItemText primary={article.createdAt} />
+                                        </Box>
                                     </Box>
                                 </ListItem>
                             </List>
