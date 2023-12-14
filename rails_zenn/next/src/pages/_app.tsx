@@ -8,6 +8,7 @@ import CurrentUserFetch from '@/components/CurrentUserFetch'
 import createEmotionCache from '@/styles/createEmotionCache'
 import theme from '@/styles/theme'
 import Header from '@/components/Header'
+import Snackbar from '@/components/Snackbar'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
