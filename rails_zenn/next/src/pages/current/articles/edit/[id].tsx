@@ -129,6 +129,19 @@ const CurrentArticlesEdit: NextPage = () => {
         url: patchUrl, 
         data: patchData, 
         headers: headers
+    }).then(() => {
+        setSnackbar({
+            message: '記事を保存しました', 
+            severity: 'success', 
+            pathname: '/current/articles/edit/[id]'
+        })
+    }).catch((err: AxiosError<{ error: string }>) => {
+        console.log(err.message) 
+        setSnackbar({
+            message: '記事の保存に失敗しました', 
+            severity: 'error', 
+            pathname: '/current/articles/edit/[id]'
+        })
     })
 
 }
