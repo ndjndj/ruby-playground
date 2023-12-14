@@ -283,13 +283,12 @@ const CurrentArticlesEdit: NextPage = () => {
                             >
                                 <MarkdownText content={watch('content')} />
                             </Box>
-
                         </Card>
                     </Box>
                 )}
-
             </Container>
         </Box>
     ) 
-
 }
+
+export default CurrentArticlesEdit
