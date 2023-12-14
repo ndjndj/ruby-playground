@@ -118,6 +118,18 @@ const CurrentArticleDetail: NextPage = () => {
                                 </Avatar>
                             </Link>
                         </Box>
+                        <Box sx={{ textAlign: 'center', width: '100%' }}>
+                            <Typography
+                                component="h2"
+                                sx={{
+                                    fontSize: { xs: 21, sm: 25 },
+                                    fontWeight: 'bold',
+                                    lineHeight: '40px'
+                                }}
+                            >
+                                {article.title}
+                            </Typography>
+                        </Box>
                     </Box>
 
                 </Box>
