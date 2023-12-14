@@ -27,6 +27,7 @@ export default function MyApp(props: MyAppProps): JSX.Element {
         <CurrentUserFetch />
         <Header />
         <Component {...pageProps} />
+        <Snackbar />
       </ThemeProvider>
     </CacheProvider>
   )
