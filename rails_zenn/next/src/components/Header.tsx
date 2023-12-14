@@ -1,10 +1,37 @@
-import { AppBar, Box, Button, Container, Typography } from '@mui/material'
+import ArticleIcon from '@mui/icons-material/Article'
+import Logout from '@mui/icons-material'
+import PersonIcon from '@mui/icons-material/Person'
+import { 
+    AppBar, 
+    Avatar,
+    Box, 
+    Button, 
+    Container, 
+    Divider,
+    IconButton, 
+    Menu,
+    MenuItem, 
+    ListItemIcon,
+    Typography 
+} from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React, { useState } from 'react'
 import { useUserState } from '@/hooks/useGlobalState'
 
 const Header = () => {
+    const router = useRouter()
     const [user] = useUserState()
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+    const open = Boolean(anchorEl)
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget)
+    }
+    const handleClose = () => {
+        setAnchorEl(null)
+    }
 
     return (
         <AppBar
@@ -13,7 +40,7 @@ const Header = () => {
                 backgroundColor: 'white',
                 color: 'black',
                 boxShadow: 'none',
-                py: '12px'
+                py: 1
             }}
         >
             <Container maxWidth="lg" sx={{ px: 2 }}>
@@ -39,21 +66,22 @@ const Header = () => {
                         <>
                             {!user.isSignedIn && (
                                 <Box>
-                                    <Link href="/sign_in">
-                                        <Button
-                                            color="primary"
-                                            variant="contained"
-                                            sx={{
-                                                color: 'white',
-                                                textTransform: 'none',
-                                                fontSize: 16,
-                                                borderRadius: 2,
-                                                boxShadow: 'none'
-                                            }}
-                                        >
-                                            Sign in
-                                        </Button>
-                                    </Link>
+                                    <Button
+                                        color="primary"
+                                        variant="contained"
+                                        sx={{
+                                            color: 'white',
+                                            textTransform: 'none',
+                                            fontSize: 16,
+                                            borderRadius: 2,
+                                            boxShadow: 'none'
+                                        }}
+                                        onClick={() => {
+                                            router.push('/sign_in')
+                                        }}
+                                    >
+                                        Sign in
+                                    </Button>
                                     <Button
                                         color="primary"
                                         variant="outlined"
