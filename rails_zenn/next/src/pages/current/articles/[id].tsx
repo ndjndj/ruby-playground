@@ -162,8 +162,7 @@ const CurrentArticleDetail: NextPage = () => {
                                     marginTop: {xs: '24px', sm: '40px'}
                                 }}
                             >
-
-                                
+                                <MarkdownText content={article.content} />
                             </Box>
                         </Card>
                     </Box>
@@ -172,3 +171,5 @@ const CurrentArticleDetail: NextPage = () => {
         </Box>
     )
 }
+
+export default CurrentArticleDetail
