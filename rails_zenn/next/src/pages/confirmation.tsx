@@ -43,5 +43,9 @@ const Confirmation: NextPage = () => {
             })
             router.push('/')
         }
-    })
+    }, [router, setSnackbar])
+
+    return <></>
 }
+
+export default Confirmation
