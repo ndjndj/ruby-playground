@@ -14,10 +14,11 @@ import {
     ListItemIcon,
     Typography 
 } from '@mui/material'
+import axios, { AxiosResponse, AxiosError } from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useUserState } from '@/hooks/useGlobalState'
 
 const Header = () => {
@@ -25,6 +26,9 @@ const Header = () => {
     const [user] = useUserState()
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
+    const hideHeaderPathnames = ['/current/articles/edit/[id]']
+
+    if (hideHeaderPathnames.includes(router.pathname)) return <></>
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget)
