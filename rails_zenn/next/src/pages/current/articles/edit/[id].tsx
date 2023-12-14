@@ -215,8 +215,53 @@ const CurrentArticlesEdit: NextPage = () => {
                         更新する
                     </LoadingButton>
                 </Toolbar>
-
             </AppBar>
+            <Container
+                maxWidth="lg"
+                sx={{ pt: 11 , pb: 3, display: 'flex', justifyContent: 'center' }}
+            >
+                {!previewChecked && (
+                    <Box sx={{ width: 840 }} >
+                        <Box sx={{ mb: 2 }}>
+                            <Controller
+                                name="title"
+                                control={control} 
+                                render={({ field, fieldState }) => (
+                                    <TextField 
+                                        {...field}
+                                        type="text"
+                                        error={fieldState.invalid}
+                                        helperText={fieldState.error?.message}
+                                        placeholder="Writer in Title"
+                                        fullWidth 
+                                        sx={{ backgroundColor: 'white' }}
+                                    /> 
+                                )}
+                            />
+                        </Box>
+                        <Box>
+                            <Controller 
+                                name="content"
+                                control={control} 
+                                render={({ field, fieldState }) => (
+                                    <TextField 
+                                        {...field}
+                                        type="textarea"
+                                        error={fieldState.invalid}
+                                        helperText={fieldState.error?.message}
+                                        multiline
+                                        fullWidth 
+                                        placeholder="Writer in Markdown Text"
+                                        rows={25}
+                                        sx={{ backgroundColor: 'white' }}
+                                    /> 
+                                )}
+                            />
+                        </Box>
+                    </Box>
+                )}
+
+            </Container>
         </Box>
     ) 
 
