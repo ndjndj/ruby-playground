@@ -97,6 +97,31 @@ const CurrentArticleDetail: NextPage = () => {
                     </Box>
                 </Container>
             </Box>
+            <Container maxWidth="lg">
+                <Box sx={{ pt: 6, pb: 3 }}> 
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0 8px',
+                            m: 'auto'
+                        }}
+                    >
+                        <Box sx={{ width: 40, height: 40 }}>
+                            <Link href={'/current/articles'}>
+                                <Avatar>
+                                    <Tooltip title="記事の管理に戻る">
+                                        <IconButton sx={{ backgroundColor: '#DDDDDD' }}>
+                                            <ChevronLeftIcon sx={{ color: '#99AAB6' }} />
+                                        </IconButton>
+                                    </Tooltip>
+                                </Avatar>
+                            </Link>
+                        </Box>
+                    </Box>
+
+                </Box>
+            </Container>
         </Box>
     )
 }
