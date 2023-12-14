@@ -35,3 +35,100 @@ type ArticleFormData = {
     title: string 
     content: string
 }
+
+const CurrentArticlesEdit: NextPage = () => {
+    useRequireSignedIn() 
+    const router = useRouter() 
+    const [user] = useUserState() 
+    const [, setSnackbar] = useSnackbarState() 
+    const [previewChecked, setPreviewChecked] = useState<boolean>(false)
+    const [statusChecked, setStatusChecked] = useState<boolean>(false)
+    const [isFetched, setIsFetched] = useState<boolean>(false)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+
+    const handleChangePreviewChecked = () => {
+        setPreviewChecked(!previewChecked)
+    }
+
+    const handleChangeStatusChecked = () => {
+        setStatusChecked(!statusChecked)
+    }
+
+    const url = process.env.NEXT_PUBLIC_API_BASE_URL 
+              + '/current/articles/'
+    const { id } = router.query 
+    const { data, error } = useSWR(
+        user.isSignedIn && id ? url + id : null, 
+        fetcher
+    ) 
+
+    const article: ArticleProps = useMemo(() => {
+        if (!data) {
+            return {
+                title: '', 
+                content: '', 
+                status: false
+            }
+        }
+        return {
+            title: data.title == null ? '' : data.title, 
+            content: data.content == null ? '' : data.content, 
+            status: data.status
+        }
+    }, [data])
+
+    const { handleSubmit, control, reset, watch } = useForm<ArticleFormData>({
+        defaultValues: article
+    })
+
+    useEffect(() => {
+        if (data) {
+            reset(article) 
+            setStatusChecked(article.status == "公開中")
+            setIsFetched(true)
+        }
+    }, [data, article, reset])
+
+    const onSubmit: SubmitHandler<ArticleFormData> = (data) => {
+        if (data.title == "") {
+            return setSnackbar({
+                message: '記事の保存にはタイトルが必要です', 
+                severity: 'error',
+                pathname: '/current/articles/edit/[id]'
+            })
+        }
+
+        if (statusChecked && data.content == '') {
+            return setSnackbar({
+                message: '本文なしの記事の公開はできません',
+                severity: 'error',
+                pathname: '/current/articles/edit/[id]'
+            })
+        }
+    }
+
+    setIsLoading(true)
+
+    const patchUrl = process.env.NEXT_PUBLIC_API_BASE_URL
+                   + '/current/articles/'
+                   + id 
+    
+    const headers = {
+        'Content-Type': 'application/json', 
+        'access-token': localStorage.getItem('access-token'),
+        client: localStorage.getItem('client'),
+        uid: localStorage.getItem('uid')
+    }
+
+    const status = statusChecked ? 'published' : 'draft' 
+
+    const patchData = { ...data, status: status }
+
+    axios({
+        method: 'PATCH',
+        url: patchUrl, 
+        data: patchData, 
+        headers: headers
+    })
+
+}
