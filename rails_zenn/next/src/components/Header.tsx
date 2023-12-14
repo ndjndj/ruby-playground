@@ -94,6 +94,7 @@ const Header = () => {
                                         sx={{
                                             color: 'white',
                                             textTransform: 'none',
+                                            lineHeight: '27px',
                                             fontSize: 16,
                                             borderRadius: 2,
                                             boxShadow: 'none'
@@ -104,20 +105,23 @@ const Header = () => {
                                     >
                                         Sign in
                                     </Button>
-                                    <Button
-                                        color="primary"
-                                        variant="outlined"
-                                        sx={{
-                                            textTransform: 'none',
-                                            fontSize: 16,
-                                            borderRadius: 2,
-                                            boxShadow: 'none',
-                                            border: '1.5px solid #3EA8FF',
-                                            ml: 2
-                                        }}
-                                    >
-                                        Sign up
-                                    </Button>
+                                    <Link href="/sign_up">
+                                        <Button
+                                            color="primary"
+                                            variant="outlined"
+                                            sx={{
+                                                textTransform: 'none',
+                                                fontSize: 16,
+                                                lineHeight: '27px',
+                                                borderRadius: 2,
+                                                boxShadow: 'none',
+                                                border: '1.5px solid #3EA8FF',
+                                                ml: 2
+                                            }}
+                                        >
+                                            Sign up
+                                        </Button>
+                                    </Link>
                                 </Box>
                             )}
                             {user.isSignedIn && (
