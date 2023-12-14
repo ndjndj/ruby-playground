@@ -139,7 +139,30 @@ const SignUp: NextPage = () => {
                         )}
                     />
 
-                    
+                    <Controller
+                        name="name"
+                        control={control}
+                        rules={validationRules.name}
+                        render={({ field, fieldState }) => (
+                            <TextField
+                                {...field}
+                                type="text"
+                                label="ユーザー名"
+                                error={fieldState.invalid}
+                                helperText={fieldState.error?.message}
+                                sx={{ backgroundColor: 'white' }}
+                            />
+                        )}
+                    />
+
+                    <LoadingButton
+                        variant="contained"
+                        type="submit"
+                        loading={isLoading}
+                        sx={{ fontWeight: 'bold', color: 'white' }}
+                    >
+                        送信する
+                    </LoadingButton>
                 </Stack>
             </Container>
         </Box>
