@@ -260,6 +260,41 @@ const CurrentArticlesEdit: NextPage = () => {
                         </Box>
                     </Box>
                 )}
+                {previewChecked && (
+                    <Box sx={{ width: 840 }} >
+                        <Typography
+                            component="h2"
+                            sx={{
+                                fontSize: { xs: 21, sm: 25 },
+                                fontWeight: 'bold',
+                                textAlign: 'center', 
+                                pt: 2, 
+                                pb: 4
+                            }}
+                        >
+
+                        </Typography>
+                        <Box>
+                            <Controller 
+                                name="content"
+                                control={control} 
+                                render={({ field, fieldState }) => (
+                                    <TextField 
+                                        {...field}
+                                        type="textarea"
+                                        error={fieldState.invalid}
+                                        helperText={fieldState.error?.message}
+                                        multiline
+                                        fullWidth 
+                                        placeholder="Writer in Markdown Text"
+                                        rows={25}
+                                        sx={{ backgroundColor: 'white' }}
+                                    /> 
+                                )}
+                            />
+                        </Box>
+                    </Box>
+                )}
 
             </Container>
         </Box>
