@@ -131,7 +131,20 @@ const CurrentArticleDetail: NextPage = () => {
                             </Typography>
                         </Box>
                     </Box>
-
+                    <Typography
+                        component="p"
+                        align="center"
+                        sx={{
+                            display: {
+                                xs: 'block',
+                                lg: 'none'
+                            },
+                            color: '#6E7B85',
+                            mt: '20px'
+                        }}
+                    >
+                        {article.createdAt} に公開
+                    </Typography>
                 </Box>
             </Container>
         </Box>
