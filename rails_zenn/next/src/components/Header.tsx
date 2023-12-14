@@ -1,5 +1,5 @@
 import ArticleIcon from '@mui/icons-material/Article'
-import Logout from '@mui/icons-material'
+import LogoutIcon from '@mui/icons-material/Logout'
 import PersonIcon from '@mui/icons-material/Person'
 import { 
     AppBar, 
@@ -120,6 +120,34 @@ const Header = () => {
                                         >
                                             Add new
                                         </Button>
+                                        <Menu
+                                            anchorEl={anchorEl}
+                                            id="account-menu"
+                                            open={open}
+                                            onClose={handleClose}
+                                            onClick={handleClose}
+                                        >
+                                            <Box sx={{ pl: 2, py: 1 }}>
+                                                <Typography sx={{ fontWeight: 'bold' }}>
+                                                    {user.name}
+                                                </Typography>
+                                            </Box>
+                                            <Divider />
+                                            <MenuItem>
+                                                <ListItemIcon>
+                                                    <ArticleIcon fontSize="small" />
+                                                </ListItemIcon>
+                                                記事の管理
+                                            </MenuItem>
+                                            <Link href="/sign_out">
+                                                <MenuItem>
+                                                    <ListItemIcon>
+                                                        <LogoutIcon fontSize="small" />
+                                                    </ListItemIcon>
+                                                    サインアウト
+                                                </MenuItem>
+                                            </Link>
+                                        </Menu>
                                     </Box>
                                 </Box>
                             )}
