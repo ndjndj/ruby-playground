@@ -105,43 +105,47 @@ const CurrentArticlesEdit: NextPage = () => {
                 pathname: '/current/articles/edit/[id]'
             })
         }
+
+        setIsLoading(true)
+
+        const patchUrl = process.env.NEXT_PUBLIC_API_BASE_URL
+                    + '/current/articles/'
+                    + id 
+        
+        const headers = {
+            'Content-Type': 'application/json', 
+            'access-token': localStorage.getItem('access-token'),
+            client: localStorage.getItem('client'),
+            uid: localStorage.getItem('uid')
+        }
+
+        const status = statusChecked ? 'published' : 'draft' 
+
+        const patchData = { ...data, status: status }
+
+        axios({
+            method: 'PATCH',
+            url: patchUrl, 
+            data: patchData, 
+            headers: headers
+        }).then(() => {
+            setSnackbar({
+                message: '記事を保存しました', 
+                severity: 'success', 
+                pathname: '/current/articles/edit/[id]'
+            })
+        }).catch((err: AxiosError<{ error: string }>) => {
+            console.log(err.message) 
+            setSnackbar({
+                message: '記事の保存に失敗しました', 
+                severity: 'error', 
+                pathname: '/current/articles/edit/[id]'
+            })
+        })
+
+        setIsLoading(false)
     }
 
-    setIsLoading(true)
-
-    const patchUrl = process.env.NEXT_PUBLIC_API_BASE_URL
-                   + '/current/articles/'
-                   + id 
     
-    const headers = {
-        'Content-Type': 'application/json', 
-        'access-token': localStorage.getItem('access-token'),
-        client: localStorage.getItem('client'),
-        uid: localStorage.getItem('uid')
-    }
-
-    const status = statusChecked ? 'published' : 'draft' 
-
-    const patchData = { ...data, status: status }
-
-    axios({
-        method: 'PATCH',
-        url: patchUrl, 
-        data: patchData, 
-        headers: headers
-    }).then(() => {
-        setSnackbar({
-            message: '記事を保存しました', 
-            severity: 'success', 
-            pathname: '/current/articles/edit/[id]'
-        })
-    }).catch((err: AxiosError<{ error: string }>) => {
-        console.log(err.message) 
-        setSnackbar({
-            message: '記事の保存に失敗しました', 
-            severity: 'error', 
-            pathname: '/current/articles/edit/[id]'
-        })
-    })
 
 }
