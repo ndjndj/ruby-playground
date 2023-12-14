@@ -41,3 +41,5 @@ const SuccessSnackbar = () => {
         </>
     )
 }
+
+export default SuccessSnackbar
