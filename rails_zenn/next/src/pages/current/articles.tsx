@@ -118,13 +118,32 @@ const CurrentArticles: NextPage = () => {
                                         </Box>
                                     )} 
                                 </>
+                                <Box>
+                                    <Avatar>
+                                        <Tooltip title="編集する">
+                                            <IconButton sx={{ backgroundColor: '#F1F5FA' }}>
+                                                <EditIcon sx={{ color: '#99AAB6' }} />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </Avatar>
+                                </Box>
+                                <Box>
+                                    <Avatar>
+                                        <Tooltip title="編集する">
+                                            <IconButton sx={{ backgroundColor: '#F1F5FA' }}>
+                                                <ChevronRightIcon sx={{ color: '#99AAB6' }} />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </Avatar>
+                                </Box>
                             </Box>
-
+                            <Divider />
                         </Box>
                     </>
                 ))}
             </Container>
-
         </Box>
     ) 
 }
+
+export default CurrentArticles
