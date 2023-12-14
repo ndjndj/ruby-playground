@@ -146,6 +146,78 @@ const CurrentArticlesEdit: NextPage = () => {
         setIsLoading(false)
     }
 
-    
+    if (error) return <Error />
+    if (!data || !isFetched) return <Loading />
+
+    return (
+        <Box
+            component="form"
+            onSubmit={handleSubmit(onSubmit)}
+            sx={{ backgroundColor: '#EDF2F7', minHeight: '100vh' }}
+        >
+            <AppBar
+                position="fixed"
+                sx={{
+                    backgroundColor: '#EDF2F7'
+                }}
+            >
+                <Toolbar
+                    sx={{
+                        display: 'flex', 
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
+                    }}
+                >
+                    <Box sx={{ width: 50 }}>
+                        <Link href="/current/articles">
+                            <IconButton>
+                                <ArrowBackSharpIcon />
+                            </IconButton>
+                        </Link>
+                    </Box>
+                    <Box
+                        sx={{
+                            display: 'flex', 
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            gap: { xs: '0 16px', sm: '0 24px' }
+                        }}
+                    >
+                        <Box sx={{ textAlign: 'center' }}>
+                            <Switch 
+                                checked={previewChecked}
+                                onChange={handleChangePreviewChecked}
+                            />
+                            <Typography sx={{ fontSize: { xs: 12, sm: 15 } }}>
+                                プレビュー表示
+                            </Typography>
+                        </Box>
+                        <Box sx={{ textAlign: 'center' }}>
+                            <Switch 
+                                checked={statusChecked}
+                                onChange={handleChangeStatusChecked}
+                            />
+                        </Box>
+                        <Typography sx={{ fontSize: { xs: 12, sm: 15 } }}>
+                            下書き/公開
+                        </Typography>
+                    </Box>
+                    <LoadingButton
+                        variant="contained"
+                        type="submit" 
+                        loading={isLoading}
+                        sx={{
+                            color: 'white', 
+                            fontWeight: 'bold', 
+                            fontSize: { xs: 12, sm: 16 }
+                        }}
+                    >
+                        更新する
+                    </LoadingButton>
+                </Toolbar>
+
+            </AppBar>
+        </Box>
+    ) 
 
 }
