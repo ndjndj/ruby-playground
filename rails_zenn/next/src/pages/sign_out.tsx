@@ -25,8 +25,6 @@ const SignOut: NextPage = () => {
         router.push('/')
     }, [router, setUser, setSnackbar])
 
-    
-
     return <></>
 }
 
