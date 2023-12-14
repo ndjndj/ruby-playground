@@ -166,6 +166,50 @@ const CurrentArticleDetail: NextPage = () => {
                             </Box>
                         </Card>
                     </Box>
+                    <Box
+                        sx={{
+                            display: { xs: 'none', lg: 'block' },
+                            width: 300, 
+                            minWidth: 300
+                        }}
+                    >
+                        <Card sx={{ boxShadow: 'none', borderRadius: '12px' }}>
+                            <List sx={{ color: '#6E7B85' }}>
+                                <ListItem divider>
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            width: '100%'
+                                        }}
+                                    >
+                                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                            <Box sx={{ pr: 1 }}>
+                                                <SettingsIcon />
+                                            </Box>
+                                            <ListItemText primary="ステータス" />
+                                        </Box>
+                                        <Box>
+                                            <ListItemText primary={article.status} />
+                                        </Box>
+                                    </Box>
+                                </ListItem>
+                                <ListItem>
+                                    <Box
+                                        sx={{
+                                            display: 'flex', 
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            width: '100%'
+                                        }}
+                                    >
+                                        
+                                    </Box>
+                                </ListItem>
+                            </List>
+                        </Card>
+                    </Box>
                 </Box>
             </Container>
         </Box>
